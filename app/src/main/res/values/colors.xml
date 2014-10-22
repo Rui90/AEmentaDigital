@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="pressed_color">#f99238</color>
+    <color name="default_color">#ffffff</color>
+    <color name="networks">#33b5e5</color>
+    <color name="points">#99cc00</color>
+    <color name="sync">#ffbb33</color>
+    <color name="settings">#ff4444</color>
+    <color name="divider">#eee9e9</color>
+    <color name="listcolor">#3d3d3d</color>
+    <color name="cima">#acacac</color>
+    <color name="version">#0099cc</color>
+    <color name="name">#669900</color>
+</resources>
