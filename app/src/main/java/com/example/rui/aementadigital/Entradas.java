@@ -92,7 +92,7 @@ public class Entradas extends Fragment {
      */
     private void prepareListData() {
         starters = new ArrayList<StartersHelper>();
-        starters.add(new StartersHelper(1, "Choutiço Assado", 2.99));
+        starters.add(new StartersHelper(1, "Chouriço Assado", 2.99));
         starters.add(new StartersHelper(1, "Pão de Alho", 3.99));
         starters.add(new StartersHelper(1, "Presunto com Melão", 2.99));
         starters.add(new StartersHelper(2, "Abóbora", 3.99));
