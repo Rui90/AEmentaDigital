@@ -193,7 +193,7 @@ public class Home extends FragmentActivity
 
             entradas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Bedroom");
+                    getActivity().getActionBar().setTitle("Entradas e Cafés");
                     Fragment fragment = new Entradas();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
@@ -203,7 +203,7 @@ public class Home extends FragmentActivity
 
             pratos.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Room");
+                    getActivity().getActionBar().setTitle("Pratos");
                     Fragment fragment = new Pratos();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
@@ -213,7 +213,7 @@ public class Home extends FragmentActivity
 
             sobremesas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Kitchen");
+                    getActivity().getActionBar().setTitle("Sobremesas e Cafés");
                     Fragment fragment = new Sobremesas();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
@@ -223,7 +223,7 @@ public class Home extends FragmentActivity
 
             bebidas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Office");
+                    getActivity().getActionBar().setTitle("Bebidas");
                     Fragment fragment = new Bebidas();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
@@ -233,7 +233,7 @@ public class Home extends FragmentActivity
 
             conta.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Bath");
+                    getActivity().getActionBar().setTitle("Conta");
                     Fragment fragment = new Conta();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
