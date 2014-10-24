@@ -1,15 +1,18 @@
 package com.example.rui.aementadigital;
 
+import android.app.Dialog;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -51,6 +54,23 @@ public class Pratos extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
+
+
+
+                final Dialog dialog = new Dialog(getActivity());
+                dialog.setTitle("Pedido");
+                dialog.setContentView(R.layout.popup);
+                dialog.show();
+                Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
+                Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
+                Button lista = (Button) dialog.findViewById(R.id.pedidos);
+                TextView text = (TextView) dialog.findViewById(R.id.pedido);
+                text.setText("tens que fzer um set do pedido, ir a lista procurar");
+                cancelBtn.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+                        dialog.hide();
+                    }
+                });
                 Toast.makeText(
                         getActivity().getApplicationContext(),
                         listDataHeader.get(groupPosition)

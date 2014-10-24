@@ -7,8 +7,9 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button"
+        android:text="Enviar diretamente
+para cozinha"
+        android:id="@+id/cuisine"
         android:layout_marginTop="239dp"
         android:layout_marginLeft="10dp"
         android:layout_alignParentTop="true"
@@ -17,40 +18,34 @@
 
     <Button
         android:layout_width="wrap_content"
+        android:textAlignment="center"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button2"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:text="Adicionar à
+lista de pedidos"
+        android:id="@+id/pedidos"
+        android:layout_alignTop="@+id/cuisine"
+        android:layout_toRightOf="@+id/cuisine"
+        android:layout_toEndOf="@+id/cuisine" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Button"
-        android:id="@+id/button3"
-        android:layout_alignTop="@+id/button2"
-        android:layout_toRightOf="@+id/button2"
-        android:layout_toEndOf="@+id/button2" />
+        android:text="Cancelar"
+        android:id="@+id/cancelar"
+        android:layout_alignTop="@+id/pedidos"
+        android:layout_toRightOf="@+id/pedidos"
+        android:layout_toEndOf="@+id/pedidos" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="O pedido vai estar aqui"
-        android:id="@+id/textView3"
+        android:id="@+id/pedido"
         android:layout_marginTop="47dp"
         android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
-
-    <NumberPicker
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/numberPicker"
-        android:layout_alignTop="@+id/numberPicker"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        android:layout_alignLeft="@+id/cuisine"
+        android:layout_alignStart="@+id/cuisine" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -59,18 +54,26 @@
         android:text="Comentário"
         android:id="@+id/textView4"
         android:layout_below="@+id/numberPicker"
-        android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignLeft="@+id/cuisine"
+        android:layout_alignStart="@+id/cuisine" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:layout_alignTop="@+id/textView4"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button"
-        android:layout_above="@+id/button2"
-        android:layout_alignRight="@+id/button3"
-        android:layout_alignEnd="@+id/button3" />
+        android:layout_toRightOf="@+id/cuisine"
+        android:layout_toEndOf="@+id/cuisine"
+        android:layout_above="@+id/pedidos"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <NumberPicker
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/numberPicker"
+        android:layout_above="@+id/editText"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 </RelativeLayout>
