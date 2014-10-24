@@ -1,65 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    style="android:style/ButtonBar"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".Home$PlaceholderFragment">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
-    <TextView
-        android:id="@+id/section_label"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+    <!--android:layout_marginTop="15dp"-->
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Entradas e Sopas"
-        android:id="@+id/button1"
-        android:layout_below="@+id/section_label"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/button2"
-        android:layout_toStartOf="@+id/button2" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="150dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginRight="100dp"
+        android:layout_marginTop="200dp"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Pratos"
-        android:id="@+id/button2"
-        android:layout_toEndOf="@+id/button3"
-        android:layout_alignTop="@+id/button1"
-        android:layout_toRightOf="@+id/button3"
-        android:layout_alignRight="@+id/button4"
-        android:layout_alignEnd="@+id/button4" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/button3"
-        android:layout_below="@+id/button2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="Sobremesas e Cafés" />
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:background="@color/networks"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bebidas"
-        android:id="@+id/button4"
-        android:layout_toEndOf="@+id/button3"
-        android:layout_alignTop="@+id/button3"
-        android:layout_toRightOf="@+id/button3" />
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="50dp"
+                android:paddingTop="25dp"
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Lista de Pedidos e Conta"
-        android:id="@+id/button5"
-        android:layout_below="@+id/button3"
-        android:layout_toRightOf="@+id/section_label"
-        android:layout_toEndOf="@+id/section_label" />
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Entradas e Sopas" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/networks"
+
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="50dp"
+                android:paddingTop="25dp"
+
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Pratos" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="0dip"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:background="@color/networks"
+
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="50dp"
+                android:paddingTop="25dp"
+
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Sobremesas e Café" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="0px"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/networks"
+
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="50dp"
+                android:paddingTop="25dp"
+
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Bebidas" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="396dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="25dp"
+                android:background="@color/networks"
+
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="50dp"
+                android:paddingTop="25dp"
+
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="Pedidos" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_marginBottom="15dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/version"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textview2"
+                android:layout_width="0px"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+
+                android:layout_marginTop="30dp"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/name"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
+
+<!--<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:paddingLeft="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingRight="@dimen/activity_horizontal_margin"-->
+    <!--android:paddingTop="@dimen/activity_vertical_margin"-->
+    <!--android:paddingBottom="@dimen/activity_vertical_margin"-->
+    <!--tools:context=".Home$PlaceholderFragment">-->
+
+    <!--<TextView-->
+        <!--android:id="@+id/section_label"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Entradas e Sopas"-->
+        <!--android:id="@+id/button1"-->
+        <!--android:layout_below="@+id/section_label"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:layout_toLeftOf="@+id/button2"-->
+        <!--android:layout_toStartOf="@+id/button2" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Pratos"-->
+        <!--android:id="@+id/button2"-->
+        <!--android:layout_toEndOf="@+id/button3"-->
+        <!--android:layout_alignTop="@+id/button1"-->
+        <!--android:layout_toRightOf="@+id/button3"-->
+        <!--android:layout_alignRight="@+id/button4"-->
+        <!--android:layout_alignEnd="@+id/button4" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/button3"-->
+        <!--android:layout_below="@+id/button2"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:text="Sobremesas e Cafés" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Bebidas"-->
+        <!--android:id="@+id/button4"-->
+        <!--android:layout_toEndOf="@+id/button3"-->
+        <!--android:layout_alignTop="@+id/button3"-->
+        <!--android:layout_toRightOf="@+id/button3" />-->
+
+    <!--<Button-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Lista de Pedidos e Conta"-->
+        <!--android:id="@+id/button5"-->
+        <!--android:layout_below="@+id/button3"-->
+        <!--android:layout_toRightOf="@+id/section_label"-->
+        <!--android:layout_toEndOf="@+id/section_label" />-->
+
+<!--</RelativeLayout>-->
