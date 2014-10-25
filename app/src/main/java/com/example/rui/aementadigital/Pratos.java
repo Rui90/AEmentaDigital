@@ -3,6 +3,7 @@ package com.example.rui.aementadigital;
 import android.app.Dialog;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -55,30 +56,23 @@ public class Pratos extends Fragment {
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
 
-
-
+                //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
+                String key = listDataHeader.get(groupPosition);
+                String dish = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
-                dialog.setTitle("Pedido");
+
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
                 Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
-                text.setText("tens que fzer um set do pedido, ir a lista procurar");
+                text.setText(dish);
                 cancelBtn.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v) {
                         dialog.hide();
                     }
                 });
-                Toast.makeText(
-                        getActivity().getApplicationContext(),
-                        listDataHeader.get(groupPosition)
-                                + " : "
-                                + listDataChild.get(
-                                listDataHeader.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT)
-                        .show();
                 return false;
             }
         });
@@ -108,6 +102,8 @@ public class Pratos extends Fragment {
 
         return view;
     }
+
+
 
     /*
      * Preparing the list data
