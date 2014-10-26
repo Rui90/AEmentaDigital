@@ -13,6 +13,7 @@ import android.widget.ListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupCollapseListener;
 import android.widget.ExpandableListView.OnGroupExpandListener;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -63,6 +64,10 @@ public class Pratos extends Fragment {
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
+
+                NumberPicker np =  (NumberPicker) dialog.findViewById(R.id.numberPicker);
+                np.setMinValue(0);
+                np.setMaxValue(10);
                 Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);

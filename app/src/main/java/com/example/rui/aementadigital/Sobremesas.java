@@ -1,5 +1,6 @@
 package com.example.rui.aementadigital;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -7,8 +8,11 @@ import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
+import android.widget.NumberPicker;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -51,14 +55,28 @@ public class Sobremesas extends Fragment {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                                         int groupPosition, int childPosition, long id) {
-                Toast.makeText(
-                        getActivity().getApplicationContext(),
-                        listDataHeader.get(groupPosition)
-                                + " : "
-                                + listDataChild.get(
-                                listDataHeader.get(groupPosition)).get(
-                                childPosition), Toast.LENGTH_SHORT)
-                        .show();
+
+                //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
+                String key = listDataHeader.get(groupPosition);
+                String dish = listDataChild.get(key).get(childPosition);
+                final Dialog dialog = new Dialog(getActivity());
+
+                dialog.setContentView(R.layout.popup);
+                dialog.show();
+
+                NumberPicker np =  (NumberPicker) dialog.findViewById(R.id.numberPicker);
+                np.setMinValue(0);
+                np.setMaxValue(10);
+                Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
+                Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
+                Button lista = (Button) dialog.findViewById(R.id.pedidos);
+                TextView text = (TextView) dialog.findViewById(R.id.pedido);
+                text.setText(dish);
+                cancelBtn.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+                        dialog.hide();
+                    }
+                });
                 return false;
             }
         });
