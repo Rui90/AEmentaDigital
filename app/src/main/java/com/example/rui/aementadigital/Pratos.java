@@ -59,20 +59,61 @@ public class Pratos extends Fragment {
 
                 //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
                 String key = listDataHeader.get(groupPosition);
-                String dish = listDataChild.get(key).get(childPosition);
+                final String dish = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
 
                 NumberPicker np =  (NumberPicker) dialog.findViewById(R.id.numberPicker);
-                np.setMinValue(0);
+                np.setMinValue(1);
                 np.setMaxValue(10);
                 Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
                 text.setText(dish);
+                ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
+                np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+                    @Override
+                    public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                        ((ContaHelper) getActivity().getApplication()).quantidade = picker.getValue();
+                    }
+                });
+               // final int quantidade = np.getValue();
+                cuisine.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+                        double price = 0;
+                        for(int i = 0; i < dishes.size(); i++) {
+                            if(dish.equals(dishes.get(i).getName())){
+                                price = dishes.get(i).getPrice();
+                                break;
+                            }
+                        }
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "O seu pedido foi enviado para a cozinha!",
+                                Toast.LENGTH_LONG).show();
+                        dialog.hide();
+                    }
+                });
+
+                lista.setOnClickListener(new View.OnClickListener(){
+                    public void onClick(View v) {
+                        double price = 0;
+                        for(int i = 0; i < dishes.size(); i++) {
+                            if(dish.equals(dishes.get(i).getName())){
+                                price = dishes.get(i).getPrice();
+                                break;
+                            }
+                        }
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 0);
+                        Toast.makeText(getActivity().getApplicationContext(),
+                                "O seu pedido foi enviado para a lista!",
+                                Toast.LENGTH_LONG).show();
+                        dialog.hide();
+                    }
+                });
                 cancelBtn.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v) {
                         dialog.hide();

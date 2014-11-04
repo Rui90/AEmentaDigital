@@ -3,10 +3,7 @@ package com.example.rui.aementadigital;
 import android.app.Activity;
 
 import android.app.ActionBar;
-import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,9 +13,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -184,7 +179,7 @@ public class Home extends FragmentActivity
             View view = inflater.inflate(R.layout.fragment_home, container, false);
             //mNavigationDrawerFragment.getListView().setItemChecked(0,true);
             Button entradas = (Button) view.findViewById((R.id.button1));
-            Button pratos = (Button) view.findViewById((R.id.button2));
+            Button pratos = (Button) view.findViewById((R.id.cancelB));
             Button sobremesas = (Button) view.findViewById((R.id.button3));
             Button bebidas = (Button) view.findViewById((R.id.button4));
             Button conta = (Button) view.findViewById((R.id.button5));
