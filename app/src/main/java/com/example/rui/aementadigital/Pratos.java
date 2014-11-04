@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.ExpandableListView.OnChildClickListener;
@@ -20,6 +21,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 /**
  * Created by Rui on 21/10/2014.
  */
@@ -65,14 +67,16 @@ public class Pratos extends Fragment {
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
 
-                NumberPicker np =  (NumberPicker) dialog.findViewById(R.id.numberPicker);
+                NumberPicker np = (NumberPicker) dialog.findViewById(R.id.numberPicker);
                 np.setMinValue(1);
                 np.setMaxValue(10);
+                np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
                 Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
                 text.setText(dish);
+                EditText comment = (EditText) dialog.findViewById(R.id.editText);
                 ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
                 np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                     @Override
@@ -80,12 +84,12 @@ public class Pratos extends Fragment {
                         ((ContaHelper) getActivity().getApplication()).quantidade = picker.getValue();
                     }
                 });
-               // final int quantidade = np.getValue();
-                cuisine.setOnClickListener(new View.OnClickListener(){
+                // final int quantidade = np.getValue();
+                cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         double price = 0;
-                        for(int i = 0; i < dishes.size(); i++) {
-                            if(dish.equals(dishes.get(i).getName())){
+                        for (int i = 0; i < dishes.size(); i++) {
+                            if (dish.equals(dishes.get(i).getName())) {
                                 price = dishes.get(i).getPrice();
                                 break;
                             }
@@ -98,11 +102,11 @@ public class Pratos extends Fragment {
                     }
                 });
 
-                lista.setOnClickListener(new View.OnClickListener(){
+                lista.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         double price = 0;
-                        for(int i = 0; i < dishes.size(); i++) {
-                            if(dish.equals(dishes.get(i).getName())){
+                        for (int i = 0; i < dishes.size(); i++) {
+                            if (dish.equals(dishes.get(i).getName())) {
                                 price = dishes.get(i).getPrice();
                                 break;
                             }
@@ -114,7 +118,7 @@ public class Pratos extends Fragment {
                         dialog.hide();
                     }
                 });
-                cancelBtn.setOnClickListener(new View.OnClickListener(){
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         dialog.hide();
                     }
@@ -150,7 +154,6 @@ public class Pratos extends Fragment {
     }
 
 
-
     /*
      * Preparing the list data
      */
@@ -178,17 +181,17 @@ public class Pratos extends Fragment {
         List<String> peixes = new ArrayList<String>();
         List<String> massas = new ArrayList<String>();
 
-        for(int i = 0; i < dishes.size(); i++) {
-            if(dishes.get(i).getType() == 1) {
+        for (int i = 0; i < dishes.size(); i++) {
+            if (dishes.get(i).getType() == 1) {
                 carnes.add(dishes.get(i).getName());
             }
-            if(dishes.get(i).getType() == 2) {
+            if (dishes.get(i).getType() == 2) {
                 peixes.add(dishes.get(i).getName());
             }
-            if(dishes.get(i).getType() == 3) {
+            if (dishes.get(i).getType() == 3) {
 
             }
-            if(dishes.get(i).getType() == 4) {
+            if (dishes.get(i).getType() == 4) {
                 massas.add(dishes.get(i).getName());
             }
         }

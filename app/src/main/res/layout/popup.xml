@@ -2,7 +2,9 @@
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true">
 
     <TextView
         android:layout_width="wrap_content"
@@ -30,25 +32,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/editText"
-
         android:layout_above="@+id/pedidos"
-        android:layout_alignRight="@+id/pedidos"
-        android:layout_alignEnd="@+id/pedidos"
-        android:text="Aqui pode dar alguma indicação especial sobre o seu pedido"
+        android:hint="Carregue para dar alguma indicação especial sobre o seu pedido"
         android:layout_below="@+id/numberPicker"
         android:layout_alignLeft="@+id/pedido"
-        android:layout_alignStart="@+id/pedido" />
-
+        android:layout_alignStart="@+id/pedido"
+        android:layout_alignRight="@+id/cancelar"
+        android:layout_alignEnd="@+id/cancelar" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Pedir já"
         android:id="@+id/cuisine"
-        android:layout_marginTop="239dp"
-        android:layout_marginLeft="10dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_marginTop="109dp"
+        android:layout_below="@+id/numberPicker"
+        android:layout_alignLeft="@+id/pedido"
+        android:layout_alignStart="@+id/pedido" />
 
     <Button
         android:layout_width="wrap_content"
@@ -56,17 +55,17 @@
         android:layout_height="wrap_content"
         android:text="Adicionar à Lista (Pedir mais tarde)"
         android:id="@+id/pedidos"
+        android:layout_toEndOf="@+id/cuisine"
         android:layout_alignTop="@+id/cuisine"
-        android:layout_toRightOf="@+id/cuisine"
-        android:layout_toEndOf="@+id/cuisine" />
+        android:layout_toRightOf="@+id/cuisine" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancelar"
         android:id="@+id/cancelar"
-        android:layout_below="@+id/cuisine"
-        android:layout_alignLeft="@+id/cuisine"
-        android:layout_alignStart="@+id/cuisine" />
+        android:layout_alignTop="@+id/pedidos"
+        android:layout_toRightOf="@+id/pedidos"
+        android:layout_toEndOf="@+id/pedidos" />
 
 </RelativeLayout>
