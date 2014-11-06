@@ -162,9 +162,13 @@ public class Bebidas extends Fragment {
         drinks.add(new DrinksHelper(1, "Quinta da Bacalhoa", 5.99));
         drinks.add(new DrinksHelper(2, "Sagres", 1.99));
         drinks.add(new DrinksHelper(2, "Super Bock", 1.99));
+        drinks.add(new DrinksHelper(2, "Feldschlößchen (importada)", 3.99));
+        drinks.add(new DrinksHelper(2, "Radeberger (importada)", 3.99));
         drinks.add(new DrinksHelper(3, "Coca-Cola", 1.99));
         drinks.add(new DrinksHelper(3, "Fanta", 1.99));
         drinks.add(new DrinksHelper(3, "Ice-Tea", 1.99));
+        drinks.add(new DrinksHelper(3, "Sumol", 1.99));
+        drinks.add(new DrinksHelper(3, "B!", 1.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

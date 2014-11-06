@@ -157,13 +157,17 @@ public class Sobremesas extends Fragment {
         desserts.add(new DessertsHelper(1, "Bolo de Cenoura", 1.50));
         desserts.add(new DessertsHelper(1, "Bolo da Avó", 1.50));
         desserts.add(new DessertsHelper(1, "Bolo de Chocolate", 1.50));
+        desserts.add(new DessertsHelper(1, "Bolo de Iogurte", 1.50));
         desserts.add(new DessertsHelper(2, "Café normal", 0.50));
         desserts.add(new DessertsHelper(2, "Café descafeinado", 0.50));
         desserts.add(new DessertsHelper(2, "Capuccino", 1.00));
         desserts.add(new DessertsHelper(3, "Baba de Camelo", 1.99));
+        desserts.add(new DessertsHelper(3, "Mousse de chocolate", 1.99));
         desserts.add(new DessertsHelper(3, "Pudim Flan", 1.99));
         desserts.add(new DessertsHelper(4, "Banana", 1.00));
         desserts.add(new DessertsHelper(4, "Melão", 1.00));
+        desserts.add(new DessertsHelper(4, "Meloa", 1.00));
+        desserts.add(new DessertsHelper(4, "Melancia", 1.00));
         desserts.add(new DessertsHelper(4, "Laranja", 1.00));
 
         listDataHeader = new ArrayList<String>();

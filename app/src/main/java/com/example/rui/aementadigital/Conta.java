@@ -1,25 +1,22 @@
 package com.example.rui.aementadigital;
 
+import android.app.Dialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.util.Log;
+import android.util.TypedValue;
 import android.view.Gravity;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.TableLayout;
-import android.widget.TableRow;
-import android.app.Dialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -117,18 +114,22 @@ public class Conta extends Fragment {
         TextView tv0 = new TextView(getActivity());
         tv0.setText("Produto");
         tv0.setTextColor(Color.WHITE);
+        tv0.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         tbrow0.addView(tv0);
         TextView tv1 = new TextView(getActivity());
         tv1.setText(" Preço/Unidade ");
         tv1.setTextColor(Color.WHITE);
+        tv1.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         tbrow0.addView(tv1);
         TextView tv2 = new TextView(getActivity());
         tv2.setText("Quantidade ");
         tv2.setTextColor(Color.WHITE);
+        tv2.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         tbrow0.addView(tv2);
         TextView tv3 = new TextView(getActivity());
         tv3.setText("Total");
         tv3.setTextColor(Color.WHITE);
+        tv3.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
         tbrow0.addView(tv3);
         stk.addView(tbrow0);
         for (int i = 0; i < completedRequests.size(); i++) {
@@ -182,18 +183,22 @@ public class Conta extends Fragment {
         TextView tv0 = new TextView(getActivity());
         tv0.setText("Produto");
         tv0.setTextColor(Color.WHITE);
+        tv0.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
         tbrow0.addView(tv0);
         TextView tv1 = new TextView(getActivity());
         tv1.setText(" Preço/Unidade ");
         tv1.setTextColor(Color.WHITE);
+        tv1.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
         tbrow0.addView(tv1);
         TextView tv2 = new TextView(getActivity());
         tv2.setText("Quantidade ");
         tv2.setTextColor(Color.WHITE);
+        tv2.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
         tbrow0.addView(tv2);
         TextView tv3 = new TextView(getActivity());
         tv3.setText("Total");
         tv3.setTextColor(Color.WHITE);
+        tv3.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 20);
         tbrow0.addView(tv3);
         stk.addView(tbrow0);
         for (int i = 0; i < completedRequests.size(); i++) {

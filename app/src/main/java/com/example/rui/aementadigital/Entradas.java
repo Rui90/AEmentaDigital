@@ -154,10 +154,14 @@ public class Entradas extends Fragment {
         starters = new ArrayList<StartersHelper>();
         starters.add(new StartersHelper(1, "Chouriço Assado", 2.99));
         starters.add(new StartersHelper(1, "Pão de Alho", 3.99));
+        starters.add(new StartersHelper(1, "Patê de atum", 2.99));
         starters.add(new StartersHelper(1, "Presunto com Melão", 2.99));
+        starters.add(new StartersHelper(1, "Queijo fresco", 2.99));
         starters.add(new StartersHelper(2, "Abóbora", 3.99));
+        starters.add(new StartersHelper(2, "Agrião", 3.99));
         starters.add(new StartersHelper(2, "Caldo Verde", 3.99));
         starters.add(new StartersHelper(2, "Canja", 3.99));
+        starters.add(new StartersHelper(2, "Sopa da pedra", 3.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
