@@ -61,8 +61,16 @@ public class Pratos extends Fragment {
 
                 //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
                 String key = listDataHeader.get(groupPosition);
-                final String dish = listDataChild.get(key).get(childPosition);
+                final String dishNamePrice = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
+                final List<String> dish = new ArrayList<String>();
+                for (int i = 0; i < dishes.size(); i++) {
+                    if (dishNamePrice.equals(dishes.get(i).getNamePrice())) {
+                        dish.add(dishes.get(i).getName());
+                        dish.add(String.valueOf(dishes.get(i).getPrice()));
+                        break;
+                    }
+                }
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
@@ -75,7 +83,7 @@ public class Pratos extends Fragment {
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
-                text.setText(dish);
+                text.setText(dish.get(0));
                 EditText comment = (EditText) dialog.findViewById(R.id.editText);
                 ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
                 np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
@@ -87,14 +95,8 @@ public class Pratos extends Fragment {
                 // final int quantidade = np.getValue();
                 cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < dishes.size(); i++) {
-                            if (dish.equals(dishes.get(i).getName())) {
-                                price = dishes.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a cozinha!",
                                 Toast.LENGTH_LONG).show();
@@ -104,14 +106,7 @@ public class Pratos extends Fragment {
 
                 lista.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < dishes.size(); i++) {
-                            if (dish.equals(dishes.get(i).getName())) {
-                                price = dishes.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 0);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 0);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a lista!",
                                 Toast.LENGTH_LONG).show();
@@ -181,10 +176,10 @@ public class Pratos extends Fragment {
         dishes.add(new DishesHelper(2,"Bacalhau à Zé do Pipo" ,"Bacalhau à Zé do Pipo                                                                                6.99€", 6.99));
         dishes.add(new DishesHelper(2,"Bacalhau com Broa" ,"Bacalhau com Broa                                                                                     9.99€", 9.99));
         dishes.add(new DishesHelper(2,"Robalo Grelhado com Batata Cozida" ,"Robalo Grelhado com Batata Cozida                                                   11.99€", 11.99));
-        dishes.add(new DishesHelper(2,"Salmão Grelhado com Puré" ,"Salmão Grelhado com Puré                                                                      8.99€", 8.99));
-        dishes.add(new DishesHelper(4,"Esparguete à Bolonhesa" ,"Esparguete à Bolonhesa                                                                           6.99€", 6.99));
+        dishes.add(new DishesHelper(2,"Salmão Grelhado com Puré","Salmão Grelhado com Puré                                                                      8.99€", 8.99));
+        dishes.add(new DishesHelper(4,"Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                           6.99€", 6.99));
         dishes.add(new DishesHelper(4,"Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
-        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa" ,"Ravioli recheado com chouriço                                                               7.99€", 7.99));
+        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa","Ravioli recheado com chouriço                                                               7.99€", 7.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -201,16 +196,16 @@ public class Pratos extends Fragment {
 
         for (int i = 0; i < dishes.size(); i++) {
             if (dishes.get(i).getType() == 1) {
-                carnes.add(dishes.get(i).getName());
+                carnes.add(dishes.get(i).getNamePrice());
             }
             if (dishes.get(i).getType() == 2) {
-                peixes.add(dishes.get(i).getName());
+                peixes.add(dishes.get(i).getNamePrice());
             }
             if (dishes.get(i).getType() == 3) {
 
             }
             if (dishes.get(i).getType() == 4) {
-                massas.add(dishes.get(i).getName());
+                massas.add(dishes.get(i).getNamePrice());
             }
         }
 
