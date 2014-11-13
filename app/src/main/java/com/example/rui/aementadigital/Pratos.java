@@ -159,19 +159,32 @@ public class Pratos extends Fragment {
      */
     private void prepareListData() {
         dishes = new ArrayList<DishesHelper>();
-        dishes.add(new DishesHelper(1, "Alheira à Mirandela", 6.99));
-        dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", 8.99));
-        dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", 5.99));
-        dishes.add(new DishesHelper(1, "Posta mirandesa", 8.99));
-        dishes.add(new DishesHelper(1, "Picanha grelhada", 7.99));
-        dishes.add(new DishesHelper(2, "Bacalhau à Brás", 6.99));
-        dishes.add(new DishesHelper(2, "Bacalhau à Zé do Pipo", 6.99));
-        dishes.add(new DishesHelper(2, "Bacalhau com Broa", 9.99));
-        dishes.add(new DishesHelper(2, "Robalo Grelhado com Batata Cozida", 11.99));
-        dishes.add(new DishesHelper(2, "Salmão Grelhado com Puré", 8.99));
-        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", 6.99));
-        dishes.add(new DishesHelper(4, "Lasanha Bolonhesa", 7.99));
-        dishes.add(new DishesHelper(4, "Ravioli recheado com chouriço", 7.99));
+//        dishes.add(new DishesHelper(1, "Alheira à Mirandela", 6.99));
+//        dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", 6.99));
+//        dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", 5.99));
+//        dishes.add(new DishesHelper(1, "Posta mirandesa", 8.99));
+//        dishes.add(new DishesHelper(1, "Picanha grelhada", 7.99));
+//        dishes.add(new DishesHelper(2, "Bacalhau à Brás", 6.99));
+//        dishes.add(new DishesHelper(2, "Bacalhau à Zé do Pipo", 6.99));
+//        dishes.add(new DishesHelper(2, "Bacalhau com Broa", 9.99));
+//        dishes.add(new DishesHelper(2, "Robalo Grelhado com Batata Cozida", 11.99));
+//        dishes.add(new DishesHelper(2, "Salmão Grelhado com Puré", 8.99));
+//        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", 6.99));
+//        dishes.add(new DishesHelper(4, "Lasanha Bolonhesa", 7.99));
+//        dishes.add(new DishesHelper(4, "Ravioli recheado com chouriço", 7.99));
+        dishes.add(new DishesHelper(1, "Alheira à Mirandela", "Alheira à Mirandela                                                                                      6.99€", 6.99));
+        dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", "Bitoque de Vaca com arroz e batata                                                       8.99€", 8.99));
+        dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", "Bitoque de Frango com arroz e batata                                                   5.99€", 5.99));
+        dishes.add(new DishesHelper(1, "Posta mirandesa", "Posta mirandesa                                                                                          8.99€", 8.99));
+        dishes.add(new DishesHelper(1, "Picanha grelhada", "Picanha grelhada                                                                                         7.99€", 7.99));
+        dishes.add(new DishesHelper(2, "Bacalhau à Brás", "Bacalhau à Brás                                                                                           6.99€", 6.99));
+        dishes.add(new DishesHelper(2,"Bacalhau à Zé do Pipo" ,"Bacalhau à Zé do Pipo                                                                                6.99€", 6.99));
+        dishes.add(new DishesHelper(2,"Bacalhau com Broa" ,"Bacalhau com Broa                                                                                     9.99€", 9.99));
+        dishes.add(new DishesHelper(2,"Robalo Grelhado com Batata Cozida" ,"Robalo Grelhado com Batata Cozida                                                   11.99€", 11.99));
+        dishes.add(new DishesHelper(2,"Salmão Grelhado com Puré" ,"Salmão Grelhado com Puré                                                                      8.99€", 8.99));
+        dishes.add(new DishesHelper(4,"Esparguete à Bolonhesa" ,"Esparguete à Bolonhesa                                                                           6.99€", 6.99));
+        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
+        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa" ,"Ravioli recheado com chouriço                                                               7.99€", 7.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

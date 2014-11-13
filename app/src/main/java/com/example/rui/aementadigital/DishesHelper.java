@@ -12,21 +12,28 @@ public class DishesHelper {
     private int food_type;
     private String name;
     private double price;
+    private String namePrice;
 
-    public DishesHelper(int food_type, String name, double price) {
+    public DishesHelper(int food_type, String name, String namePrice, double price) {
         this.food_type = food_type;
         this.name = name;
         this.price = price;
+        this.namePrice = namePrice;
     }
 
     public String getName() {
         return name;
     }
+
     public int getType() {
         return food_type;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public String getNamePrice() {
+        return namePrice;
     }
 }
