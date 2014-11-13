@@ -58,8 +58,17 @@ public class Sobremesas extends Fragment {
 
                 //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
                 String key = listDataHeader.get(groupPosition);
-                final String dish = listDataChild.get(key).get(childPosition);
+                final String dishNamePrice = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
+
+                final List<String> dish = new ArrayList<String>();
+                for (int i = 0; i < desserts.size(); i++) {
+                    if (dishNamePrice.equals(desserts.get(i).getNamePrice())) {
+                        dish.add(desserts.get(i).getName());
+                        dish.add(String.valueOf(desserts.get(i).getPrice()));
+                        break;
+                    }
+                }
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
@@ -72,7 +81,7 @@ public class Sobremesas extends Fragment {
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
-                text.setText(dish);
+                text.setText(dish.get(0));
                 ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
                 np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                     @Override
@@ -83,14 +92,7 @@ public class Sobremesas extends Fragment {
                 // final int quantidade = np.getValue();
                 cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < desserts.size(); i++) {
-                            if (dish.equals(desserts.get(i).getName())) {
-                                price = desserts.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a cozinha!",
                                 Toast.LENGTH_LONG).show();
@@ -100,14 +102,7 @@ public class Sobremesas extends Fragment {
 
                 lista.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < desserts.size(); i++) {
-                            if (dish.equals(desserts.get(i).getName())) {
-                                price = desserts.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 0);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 0);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a lista!",
                                 Toast.LENGTH_LONG).show();
@@ -154,21 +149,24 @@ public class Sobremesas extends Fragment {
      */
     private void prepareListData() {
         desserts = new ArrayList<DessertsHelper>();
-        desserts.add(new DessertsHelper(1, "Bolo de Cenoura", 1.50));
-        desserts.add(new DessertsHelper(1, "Bolo da Avó", 1.50));
-        desserts.add(new DessertsHelper(1, "Bolo de Chocolate", 1.50));
-        desserts.add(new DessertsHelper(1, "Bolo de Iogurte", 1.50));
-        desserts.add(new DessertsHelper(2, "Café normal", 0.50));
-        desserts.add(new DessertsHelper(2, "Café descafeinado", 0.50));
-        desserts.add(new DessertsHelper(2, "Capuccino", 1.00));
-        desserts.add(new DessertsHelper(3, "Baba de Camelo", 1.99));
-        desserts.add(new DessertsHelper(3, "Mousse de chocolate", 1.99));
-        desserts.add(new DessertsHelper(3, "Pudim Flan", 1.99));
-        desserts.add(new DessertsHelper(4, "Banana", 1.00));
-        desserts.add(new DessertsHelper(4, "Melão", 1.00));
-        desserts.add(new DessertsHelper(4, "Meloa", 1.00));
-        desserts.add(new DessertsHelper(4, "Melancia", 1.00));
-        desserts.add(new DessertsHelper(4, "Laranja", 1.00));
+        desserts.add(new DessertsHelper(1, "Bolo de Cenoura", "Bolo de Cenoura                                                                                           1.50€", 1.50));
+        desserts.add(new DessertsHelper(1, "Bolo da Avó", "Bolo da Avó                                                                                                    1.50€", 1.50));
+        desserts.add(new DessertsHelper(1, "Bolo de Chocolate", "Bolo de Chocolate                                                                                        1.50€", 1.50));
+        desserts.add(new DessertsHelper(1, "Bolo de Iogurte", "Bolo de Iogurte                                                                                             1.50€", 1.50));
+
+        desserts.add(new DessertsHelper(2, "Café normal", "Café normal                                                                                                   0.50€", 0.50));
+        desserts.add(new DessertsHelper(2, "Café descafeinado", "Café descafeinado                                                                                       0.50€", 0.50));
+        desserts.add(new DessertsHelper(2, "Capuccino", "Capuccino                                                                                                      1.00€", 1.00));
+
+        desserts.add(new DessertsHelper(3, "Baba de Camelo", "Baba de Camelo                                                                                           1.99€", 1.99));
+        desserts.add(new DessertsHelper(3, "Mousse de chocolate", "Mousse de chocolate                                                                                  1.99€", 1.99));
+        desserts.add(new DessertsHelper(3, "Pudim Flan", "Pudim Flan                                                                                                     1.99€", 1.99));
+
+        desserts.add(new DessertsHelper(4, "Banana", "Banana                                                                                                            1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Melão", "Melão                                                                                                               1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Meloa", "Meloa                                                                                                               1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Melancia", "Melancia                                                                                                         1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Laranja", "Laranja                                                                                                            1.00€", 1.00));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -185,18 +183,18 @@ public class Sobremesas extends Fragment {
         List<String> doces = new ArrayList<String>();
         List<String> frutas = new ArrayList<String>();
 
-        for(int i = 0; i < desserts.size(); i++) {
-            if(desserts.get(i).getType() == 1) {
-                bolos.add(desserts.get(i).getName());
+        for (int i = 0; i < desserts.size(); i++) {
+            if (desserts.get(i).getType() == 1) {
+                bolos.add(desserts.get(i).getNamePrice());
             }
-            if(desserts.get(i).getType() == 2) {
-                cafes.add(desserts.get(i).getName());
+            if (desserts.get(i).getType() == 2) {
+                cafes.add(desserts.get(i).getNamePrice());
             }
-            if(desserts.get(i).getType() == 3) {
-                doces.add(desserts.get(i).getName());
+            if (desserts.get(i).getType() == 3) {
+                doces.add(desserts.get(i).getNamePrice());
             }
-            if(desserts.get(i).getType() == 4) {
-                frutas.add(desserts.get(i).getName());
+            if (desserts.get(i).getType() == 4) {
+                frutas.add(desserts.get(i).getNamePrice());
             }
         }
 

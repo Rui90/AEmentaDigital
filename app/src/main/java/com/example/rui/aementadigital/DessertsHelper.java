@@ -12,21 +12,28 @@ public class DessertsHelper {
     private int dessert_type;
     private String name;
     private double price;
+    private String priceName;
 
-    public DessertsHelper(int dessert_type, String name, double price) {
+    public DessertsHelper(int dessert_type, String name, String priceName, double price) {
         this.dessert_type = dessert_type;
         this.name = name;
         this.price = price;
+        this.priceName = priceName;
     }
 
     public String getName() {
         return name;
     }
+
     public int getType() {
         return dessert_type;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public String getNamePrice() {
+        return priceName;
     }
 }

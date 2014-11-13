@@ -10,21 +10,28 @@ public class StartersHelper {
     private int starter_type;
     private String name;
     private double price;
+    private String namePrice;
 
-    public StartersHelper(int starter_type, String name, double price) {
+    public StartersHelper(int starter_type, String name, String namePrice, double price) {
         this.starter_type = starter_type;
         this.name = name;
         this.price = price;
+        this.namePrice = namePrice;
     }
 
     public String getName() {
         return name;
     }
+
     public int getType() {
         return starter_type;
     }
 
     public double getPrice() {
         return price;
+    }
+
+    public String getNamePrice() {
+        return namePrice;
     }
 }

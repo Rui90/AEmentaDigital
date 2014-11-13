@@ -105,7 +105,7 @@ public class Conta extends Fragment {
                             List<Pedido> completedRequests = ((ContaHelper) getActivity().getApplication()).pedidosConcretizados;
 
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "Obrigado por ter vindo. Esperamos que tenha ficado satisfeito com o serviço. \n Por favor agrade pragamento",
+                                    "Obrigado por ter vindo. Esperamos que tenha ficado satisfeito com o serviço. \n Por favor aguarde pragamento",
                                     Toast.LENGTH_LONG).show();
                             dialog.hide();
                             getActivity().getActionBar().setTitle("Home");

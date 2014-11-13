@@ -179,7 +179,7 @@ public class Pratos extends Fragment {
         dishes.add(new DishesHelper(2,"Salmão Grelhado com Puré","Salmão Grelhado com Puré                                                                      8.99€", 8.99));
         dishes.add(new DishesHelper(4,"Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                           6.99€", 6.99));
         dishes.add(new DishesHelper(4,"Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
-        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa","Ravioli recheado com chouriço                                                               7.99€", 7.99));
+        dishes.add(new DishesHelper(4,"Ravioli recheado com chouriço","Ravioli recheado com chouriço                                                               7.99€", 7.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

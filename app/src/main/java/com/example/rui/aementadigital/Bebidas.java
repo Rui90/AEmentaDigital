@@ -21,8 +21,6 @@ import java.util.List;
 
 /**
  * Created by Rui on 21/10/2014.
- *
- *
  */
 public class Bebidas extends Fragment {
 
@@ -60,8 +58,17 @@ public class Bebidas extends Fragment {
 
                 //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
                 String key = listDataHeader.get(groupPosition);
-                final String dish = listDataChild.get(key).get(childPosition);
+                final String dishNamePrice = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
+
+                final List<String> dish = new ArrayList<String>();
+                for (int i = 0; i < drinks.size(); i++) {
+                    if (dishNamePrice.equals(drinks.get(i).getNamePrice())) {
+                        dish.add(drinks.get(i).getName());
+                        dish.add(String.valueOf(drinks.get(i).getPrice()));
+                        break;
+                    }
+                }
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
@@ -74,7 +81,7 @@ public class Bebidas extends Fragment {
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
-                text.setText(dish);
+                text.setText(dish.get(0));
                 ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
                 np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                     @Override
@@ -85,14 +92,7 @@ public class Bebidas extends Fragment {
                 // final int quantidade = np.getValue();
                 cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < drinks.size(); i++) {
-                            if (dish.equals(drinks.get(i).getName())) {
-                                price = drinks.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a cozinha!",
                                 Toast.LENGTH_LONG).show();
@@ -102,14 +102,7 @@ public class Bebidas extends Fragment {
 
                 lista.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < drinks.size(); i++) {
-                            if (dish.equals(drinks.get(i).getName())) {
-                                price = drinks.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 0);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 0);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a lista!",
                                 Toast.LENGTH_LONG).show();
@@ -157,18 +150,20 @@ public class Bebidas extends Fragment {
     private void prepareListData() {
         drinks = new ArrayList<DrinksHelper>();
 
-        drinks.add(new DrinksHelper(1, "Alentejano", 8.99));
-        drinks.add(new DrinksHelper(1, "Porto", 6.99));
-        drinks.add(new DrinksHelper(1, "Quinta da Bacalhoa", 5.99));
-        drinks.add(new DrinksHelper(2, "Sagres", 1.99));
-        drinks.add(new DrinksHelper(2, "Super Bock", 1.99));
-        drinks.add(new DrinksHelper(2, "Feldschlößchen (importada)", 3.99));
-        drinks.add(new DrinksHelper(2, "Radeberger (importada)", 3.99));
-        drinks.add(new DrinksHelper(3, "Coca-Cola", 1.99));
-        drinks.add(new DrinksHelper(3, "Fanta", 1.99));
-        drinks.add(new DrinksHelper(3, "Ice-Tea", 1.99));
-        drinks.add(new DrinksHelper(3, "Sumol", 1.99));
-        drinks.add(new DrinksHelper(3, "B!", 1.99));
+        drinks.add(new DrinksHelper(1, "Alentejano", "Alentejano                                                                                                     8.99€", 8.99));
+        drinks.add(new DrinksHelper(1, "Porto", "Porto                                                                                                               6.99€", 6.99));
+        drinks.add(new DrinksHelper(1, "Quinta da Bacalhoa", "Quinta da Bacalhoa                                                                                    5.99€", 5.99));
+
+        drinks.add(new DrinksHelper(2, "Sagres", "Sagres                                                                                                            1.99€", 1.99));
+        drinks.add(new DrinksHelper(2, "Super Bock", "Super Bock                                                                                                    1.99€", 1.99));
+        drinks.add(new DrinksHelper(2, "Feldschlößchen (importada)", "Feldschlößchen (importada)                                                                    3.99€", 3.99));
+        drinks.add(new DrinksHelper(2, "Radeberger (importada)", "Radeberger (importada)                                                                            3.99€", 3.99));
+
+        drinks.add(new DrinksHelper(3, "Coca-Cola", "Coca-Cola                                                                                                      1.99€", 1.99));
+        drinks.add(new DrinksHelper(3, "Fanta", "Fanta                                                                                                              1.99€", 1.99));
+        drinks.add(new DrinksHelper(3, "Ice-Tea", "Ice-Tea                                                                                                           1.99€", 1.99));
+        drinks.add(new DrinksHelper(3, "Sumol", "Sumol                                                                                                             1.99€", 1.99));
+        drinks.add(new DrinksHelper(3, "B!", "B!                                                                                                                     1.00€", 1.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -183,15 +178,15 @@ public class Bebidas extends Fragment {
         List<String> cervejas = new ArrayList<String>();
         List<String> refrigerantes = new ArrayList<String>();
 
-        for(int i = 0; i < drinks.size(); i++) {
-            if(drinks.get(i).getType() == 1) {
-                vinhos.add(drinks.get(i).getName());
+        for (int i = 0; i < drinks.size(); i++) {
+            if (drinks.get(i).getType() == 1) {
+                vinhos.add(drinks.get(i).getNamePrice());
             }
-            if(drinks.get(i).getType() == 2) {
-                cervejas.add(drinks.get(i).getName());
+            if (drinks.get(i).getType() == 2) {
+                cervejas.add(drinks.get(i).getNamePrice());
             }
-            if(drinks.get(i).getType() == 3) {
-                refrigerantes.add(drinks.get(i).getName());
+            if (drinks.get(i).getType() == 3) {
+                refrigerantes.add(drinks.get(i).getNamePrice());
             }
         }
 

@@ -1,7 +1,8 @@
 package com.example.rui.aementadigital;
 
 import android.app.Dialog;
-import android.support.v4.app.Fragment;import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,8 +57,16 @@ public class Entradas extends Fragment {
 
                 //o ideal era fazer isto de outra maneira... ms não estou a ver como -.-
                 String key = listDataHeader.get(groupPosition);
-                final String dish = listDataChild.get(key).get(childPosition);
+                final String dishNamePrice = listDataChild.get(key).get(childPosition);
                 final Dialog dialog = new Dialog(getActivity());
+                final List<String> dish = new ArrayList<String>();
+                for (int i = 0; i < starters.size(); i++) {
+                    if (dishNamePrice.equals(starters.get(i).getNamePrice())) {
+                        dish.add(starters.get(i).getName());
+                        dish.add(String.valueOf(starters.get(i).getPrice()));
+                        break;
+                    }
+                }
 
                 dialog.setContentView(R.layout.popup);
                 dialog.show();
@@ -70,7 +79,7 @@ public class Entradas extends Fragment {
                 Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
                 Button lista = (Button) dialog.findViewById(R.id.pedidos);
                 TextView text = (TextView) dialog.findViewById(R.id.pedido);
-                text.setText(dish);
+                text.setText(dish.get(0));
                 ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
                 np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
                     @Override
@@ -81,14 +90,7 @@ public class Entradas extends Fragment {
                 // final int quantidade = np.getValue();
                 cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < starters.size(); i++) {
-                            if (dish.equals(starters.get(i).getName())) {
-                                price = starters.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a cozinha!",
                                 Toast.LENGTH_LONG).show();
@@ -98,14 +100,7 @@ public class Entradas extends Fragment {
 
                 lista.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        double price = 0;
-                        for (int i = 0; i < starters.size(); i++) {
-                            if (dish.equals(starters.get(i).getName())) {
-                                price = starters.get(i).getPrice();
-                                break;
-                            }
-                        }
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish, price, ((ContaHelper) getActivity().getApplication()).quantidade), 0);
+                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 0);
                         Toast.makeText(getActivity().getApplicationContext(),
                                 "O seu pedido foi enviado para a lista!",
                                 Toast.LENGTH_LONG).show();
@@ -152,16 +147,16 @@ public class Entradas extends Fragment {
      */
     private void prepareListData() {
         starters = new ArrayList<StartersHelper>();
-        starters.add(new StartersHelper(1, "Chouriço Assado", 2.99));
-        starters.add(new StartersHelper(1, "Pão de Alho", 3.99));
-        starters.add(new StartersHelper(1, "Patê de atum", 2.99));
-        starters.add(new StartersHelper(1, "Presunto com Melão", 2.99));
-        starters.add(new StartersHelper(1, "Queijo fresco", 2.99));
-        starters.add(new StartersHelper(2, "Abóbora", 3.99));
-        starters.add(new StartersHelper(2, "Agrião", 3.99));
-        starters.add(new StartersHelper(2, "Caldo Verde", 3.99));
-        starters.add(new StartersHelper(2, "Canja", 3.99));
-        starters.add(new StartersHelper(2, "Sopa da pedra", 3.99));
+        starters.add(new StartersHelper(1, "Chouriço Assado", "Chouriço Assado                                                                                          2.99€", 2.99));
+        starters.add(new StartersHelper(1, "Pão de Alho", "Pão de Alho                                                                                                    3.99€", 3.99));
+        starters.add(new StartersHelper(1, "Patê de atum", "Patê de atum                                                                                                 2.99€", 2.99));
+        starters.add(new StartersHelper(1, "Presunto com Melão", "Presunto com Melão                                                                                   2.99€", 2.99));
+        starters.add(new StartersHelper(1, "Queijo fresco", "Queijo fresco                                                                                                 2.99€", 2.99));
+        starters.add(new StartersHelper(2, "Sopa de Abóbora", "Sopa de Abóbora                                                                                          3.99€", 3.99));
+        starters.add(new StartersHelper(2, "Sopa de Agrião", "Sopa de Agrião                                                                                              3.99€", 3.99));
+        starters.add(new StartersHelper(2, "Caldo Verde", "Caldo Verde                                                                                                    3.99€", 3.99));
+        starters.add(new StartersHelper(2, "Canja", "Canja                                                                                                                3.99€", 3.99));
+        starters.add(new StartersHelper(2, "Sopa da pedra", "Sopa da pedra                                                                                               3.99€", 3.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
@@ -174,12 +169,12 @@ public class Entradas extends Fragment {
         List<String> entradas = new ArrayList<String>();
         List<String> sopas = new ArrayList<String>();
 
-        for(int i = 0; i < starters.size(); i++) {
-            if(starters.get(i).getType() == 1) {
-                entradas.add(starters.get(i).getName());
+        for (int i = 0; i < starters.size(); i++) {
+            if (starters.get(i).getType() == 1) {
+                entradas.add(starters.get(i).getNamePrice());
             }
-            if(starters.get(i).getType() == 2) {
-                sopas.add(starters.get(i).getName());
+            if (starters.get(i).getType() == 2) {
+                sopas.add(starters.get(i).getNamePrice());
             }
         }
 
