@@ -14,11 +14,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -39,21 +41,88 @@ public class Conta extends Fragment {
         super.onCreate(savedInstanceState);
         // requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        if(((ContaHelper) getActivity().getApplication()).pedidosPorEnviar.size() > 0){
+        if (((ContaHelper) getActivity().getApplication()).pedidosPorEnviar.size() > 0) {
             toSendRequests(view);
             Button send2Account = (Button) view.findViewById(R.id.sendToKitchen);
             TextView text = (TextView) view.findViewById(R.id.pedidosporEnviar);
             text.setVisibility(View.VISIBLE);
             send2Account.setVisibility(View.VISIBLE);
 
-            for(int i = 0; i < buttonsEdit.length; i++) {
-                if(buttonsEdit[i] != null) {
-                buttonsEdit[i].setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        Toast.makeText(getActivity().getApplicationContext(),
-                                "Eu cliquei!", Toast.LENGTH_LONG).show();
-                    }
-                });
+            for (int i = 0; i < buttonsEdit.length; i++) {
+                System.out.println(i);
+                if (buttonsEdit[i] != null) {
+                    final int toEdit = i;
+                    buttonsEdit[i].setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            final List<Pedido> waitingOrders = ((ContaHelper) getActivity().getApplication()).pedidosPorEnviar;
+
+                            final Dialog dialog = new Dialog(getActivity());
+
+                            dialog.setContentView(R.layout.popup);
+                            dialog.show();
+
+                            NumberPicker np = (NumberPicker) dialog.findViewById(R.id.numberPicker);
+                            np.setMinValue(1);
+                            np.setMaxValue(10);
+                            np.setDescendantFocusability(NumberPicker.FOCUS_BLOCK_DESCENDANTS);
+                            Button cuisine = (Button) dialog.findViewById(R.id.cuisine);
+                            cuisine.setVisibility(View.INVISIBLE);
+                            Button cancelBtn = (Button) dialog.findViewById(R.id.cancelar);
+                            Button lista = (Button) dialog.findViewById(R.id.pedidos);
+                            lista.setText("Ok");
+                            TextView text = (TextView) dialog.findViewById(R.id.pedido);
+                            text.setText(waitingOrders.get(toEdit).getProdutName());
+                            ((ContaHelper) getActivity().getApplication()).quantidade = np.getValue();
+                            np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
+                                @Override
+                                public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
+                                    waitingOrders.get(toEdit).setQuantidade(picker.getValue());
+                                }
+                            });
+
+                            lista.setOnClickListener(new View.OnClickListener() {
+                                public void onClick(View v) {
+
+                                    dialog.hide();
+
+                                    getActivity().getActionBar().setTitle("Conta");
+                                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                                    Fragment fragment = new Conta();
+                                    fragmentManager.beginTransaction()
+                                            .replace(R.id.container, fragment)
+                                            .commit();
+                                }
+                            });
+                            cancelBtn.setOnClickListener(new View.OnClickListener() {
+                                public void onClick(View v) {
+                                    dialog.hide();
+                                }
+                            });
+                        }
+                    });
+                }
+            }
+
+            for (int i = 0; i < buttonsRemove.length; i++) {
+                System.out.println(i);
+                if (buttonsRemove[i] != null) {
+                    final int toRemove = i;
+                    buttonsRemove[i].setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            List<Pedido> waitingOrders = ((ContaHelper) getActivity().getApplication()).pedidosPorEnviar;
+                            waitingOrders.remove(toRemove);
+
+                            getActivity().getActionBar().setTitle("Conta");
+                            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                            Fragment fragment = new Conta();
+                            fragmentManager.beginTransaction()
+                                    .replace(R.id.container, fragment)
+                                    .commit();
+
+//                            Toast.makeText(getActivity().getApplicationContext(),
+//                                    "Eu cliquei!", Toast.LENGTH_LONG).show();
+                        }
+                    });
                 }
             }
 
@@ -63,7 +132,7 @@ public class Conta extends Fragment {
                     List<Pedido> completedRequests = ((ContaHelper) getActivity().getApplication()).pedidosConcretizados;
                     List<Pedido> waitingOrders = ((ContaHelper) getActivity().getApplication()).pedidosPorEnviar;
 
-                    for(int i = 0; i < waitingOrders.size(); i++)
+                    for (int i = 0; i < waitingOrders.size(); i++)
                         completedRequests.add(waitingOrders.get(i));
                     waitingOrders.clear();
 
@@ -78,13 +147,13 @@ public class Conta extends Fragment {
             });
         }
 
-        if(((ContaHelper) getActivity().getApplication()).pedidosConcretizados.size() > 0) {
+        if (((ContaHelper) getActivity().getApplication()).pedidosConcretizados.size() > 0) {
             sentResquests(view);
             Button sendAccount = (Button) view.findViewById(R.id.sendAccount);
             TextView text = (TextView) view.findViewById(R.id.pedidosenviados);
             text.setVisibility(View.VISIBLE);
             sendAccount.setVisibility(View.VISIBLE);
-            final double total = total_aux;
+            final double total = Math.round(total_aux * 100.0) / 100.0;
             sendAccount.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
                     final Dialog dialog = new Dialog(getActivity());
@@ -161,7 +230,6 @@ public class Conta extends Fragment {
 //            t0v.setGravity(Gravity.LEFT);
 
 
-
             tbrow.addView(t0v);
             TextView t1v = new TextView(getActivity());
             t1v.setText(" " + String.valueOf(completedRequests.get(i).getPrice()) + " ");
@@ -174,9 +242,9 @@ public class Conta extends Fragment {
             t2v.setGravity(Gravity.CENTER);
             tbrow.addView(t2v);
             TextView t3v = new TextView(getActivity());
-            double calc = completedRequests.get(i).getQuantidade()*completedRequests.get(i).getPrice();
+            double calc = completedRequests.get(i).getQuantidade() * completedRequests.get(i).getPrice();
             total_aux += calc;
-            t3v.setText(String.valueOf(calc));
+            t3v.setText(String.valueOf(Math.round(calc * 100.0) / 100.0));
             t3v.setTextColor(Color.WHITE);
             t3v.setGravity(Gravity.CENTER);
             tbrow.addView(t3v);
@@ -190,7 +258,7 @@ public class Conta extends Fragment {
         TextView t2v = new TextView(getActivity());
         tbrow.addView(t2v);
         TextView t3v = new TextView(getActivity());
-        t3v.setText(String.valueOf(total_aux));
+        t3v.setText(String.valueOf(Math.round(total_aux * 100.0) / 100.0));
         t3v.setTextColor(Color.WHITE);
         t3v.setGravity(Gravity.CENTER);
         tbrow.addView(t3v);
@@ -243,9 +311,9 @@ public class Conta extends Fragment {
             t2v.setGravity(Gravity.CENTER);
             tbrow.addView(t2v);
             TextView t3v = new TextView(getActivity());
-            double calc = waitingOrders.get(i).getQuantidade()*waitingOrders.get(i).getPrice();
+            double calc = waitingOrders.get(i).getQuantidade() * waitingOrders.get(i).getPrice();
             total_aux += calc;
-            t3v.setText(String.valueOf(calc));
+            t3v.setText(String.valueOf(Math.round(calc * 100.0) / 100.0));
             t3v.setTextColor(Color.WHITE);
             t3v.setGravity(Gravity.CENTER);
             tbrow.addView(t3v);
@@ -269,7 +337,7 @@ public class Conta extends Fragment {
         TextView t2v = new TextView(getActivity());
         tbrow.addView(t2v);
         TextView t3v = new TextView(getActivity());
-        t3v.setText(String.valueOf(total_aux));
+        t3v.setText(String.valueOf(Math.round(total_aux * 100.0) / 100.0));
         t3v.setTextColor(Color.WHITE);
         t3v.setGravity(Gravity.CENTER);
         tbrow.addView(t3v);
