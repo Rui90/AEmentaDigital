@@ -91,6 +91,9 @@ public class Conta extends Fragment {
                                     fragmentManager.beginTransaction()
                                             .replace(R.id.container, fragment)
                                             .commit();
+
+                                    Toast.makeText(getActivity().getApplicationContext(),
+                                            "Quantidade modificada.", Toast.LENGTH_LONG).show();
                                 }
                             });
                             cancelBtn.setOnClickListener(new View.OnClickListener() {
@@ -119,8 +122,8 @@ public class Conta extends Fragment {
                                     .replace(R.id.container, fragment)
                                     .commit();
 
-//                            Toast.makeText(getActivity().getApplicationContext(),
-//                                    "Eu cliquei!", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getActivity().getApplicationContext(),
+                                    "Item removido.", Toast.LENGTH_LONG).show();
                         }
                     });
                 }
@@ -174,7 +177,7 @@ public class Conta extends Fragment {
                             List<Pedido> completedRequests = ((ContaHelper) getActivity().getApplication()).pedidosConcretizados;
 
                             Toast.makeText(getActivity().getApplicationContext(),
-                                    "Obrigado por ter vindo. Esperamos que tenha ficado satisfeito com o serviço. \n Por favor aguarde pragamento",
+                                    "Obrigado por ter vindo. Esperamos que tenha ficado satisfeito com o serviço. \n Por favor aguarde pagamento",
                                     Toast.LENGTH_LONG).show();
                             dialog.hide();
                             getActivity().getActionBar().setTitle("Home");

@@ -7,6 +7,8 @@
     <string name="dishes">Pratos</string>
     <string name="desserts">Sobremesas</string>
     <string name="beverages">Bebidas</string>
+    <string name="account">Conta</string>
+    <string name="code">Password</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>

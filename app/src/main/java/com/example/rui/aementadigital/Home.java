@@ -3,6 +3,9 @@ package com.example.rui.aementadigital;
 import android.app.Activity;
 
 import android.app.ActionBar;
+import android.app.ActivityManager;
+import android.content.ComponentName;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -56,9 +59,9 @@ public class Home extends FragmentActivity
 
     @Override
     public void onNavigationDrawerItemSelected(int position) {
-        switch(position) {
+        switch (position) {
             case 0: {
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 Fragment fragment = new HomeView();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
@@ -68,48 +71,57 @@ public class Home extends FragmentActivity
             }
             case 1: {
                 Fragment fragment = new Entradas();
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
                 break;
             }
-            case 2:{
+            case 2: {
                 Fragment fragment = new Pratos();
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
                 break;
             }
-            case 3:{
+            case 3: {
                 Fragment fragment = new Sobremesas();
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
                 break;
             }
-            case 4:{
+            case 4: {
                 Fragment fragment = new Bebidas();
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
                 break;
             }
-            case 5:{
+            case 5: {
                 Fragment fragment = new Conta();
-                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
-                break; 
+                break;
+            }
+            case 6: {
+                Fragment fragment = new AskPassword();
+//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
+                break;
             }
 
         }
@@ -131,6 +143,9 @@ public class Home extends FragmentActivity
                 break;
             case 5:
                 mTitle = getString(R.string.beverages);
+                break;
+            case 6:
+                mTitle = getString(R.string.code);
                 break;
         }
     }
@@ -286,7 +301,7 @@ public class Home extends FragmentActivity
 
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+                                 Bundle savedInstanceState) {
             View rootView = inflater.inflate(R.layout.fragment_home, container, false);
             return rootView;
         }

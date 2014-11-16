@@ -1,7 +1,8 @@
 package com.example.rui.aementadigital;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +49,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -65,6 +73,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -83,6 +98,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -101,6 +123,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -119,6 +148,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -137,6 +173,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -154,6 +197,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -171,6 +221,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -188,6 +245,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }
@@ -205,6 +269,13 @@ public class AskPassword extends Fragment {
                                 Toast.LENGTH_LONG).show();
                         password.setText(null);
                         passwordCount.setText(null);
+
+                        getActivity().getActionBar().setTitle("Home");
+                        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                        Fragment fragment = new Home.HomeView();
+                        fragmentManager.beginTransaction()
+                                .replace(R.id.container, fragment)
+                                .commit();
                     }
                 }
             }

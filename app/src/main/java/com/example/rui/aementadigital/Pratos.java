@@ -127,9 +127,9 @@ public class Pratos extends Fragment {
 
             @Override
             public void onGroupExpand(int groupPosition) {
-                Toast.makeText(getActivity().getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Expanded",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity().getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Expanded",
+//                        Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -138,9 +138,9 @@ public class Pratos extends Fragment {
 
             @Override
             public void onGroupCollapse(int groupPosition) {
-                Toast.makeText(getActivity().getApplicationContext(),
-                        listDataHeader.get(groupPosition) + " Collapsed",
-                        Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity().getApplicationContext(),
+//                        listDataHeader.get(groupPosition) + " Collapsed",
+//                        Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -154,19 +154,6 @@ public class Pratos extends Fragment {
      */
     private void prepareListData() {
         dishes = new ArrayList<DishesHelper>();
-//        dishes.add(new DishesHelper(1, "Alheira à Mirandela", 6.99));
-//        dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", 6.99));
-//        dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", 5.99));
-//        dishes.add(new DishesHelper(1, "Posta mirandesa", 8.99));
-//        dishes.add(new DishesHelper(1, "Picanha grelhada", 7.99));
-//        dishes.add(new DishesHelper(2, "Bacalhau à Brás", 6.99));
-//        dishes.add(new DishesHelper(2, "Bacalhau à Zé do Pipo", 6.99));
-//        dishes.add(new DishesHelper(2, "Bacalhau com Broa", 9.99));
-//        dishes.add(new DishesHelper(2, "Robalo Grelhado com Batata Cozida", 11.99));
-//        dishes.add(new DishesHelper(2, "Salmão Grelhado com Puré", 8.99));
-//        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", 6.99));
-//        dishes.add(new DishesHelper(4, "Lasanha Bolonhesa", 7.99));
-//        dishes.add(new DishesHelper(4, "Ravioli recheado com chouriço", 7.99));
         dishes.add(new DishesHelper(1, "Alheira à Mirandela", "Alheira à Mirandela                                                                                      6.99€", 6.99));
         dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", "Bitoque de Vaca com arroz e batata                                                       8.99€", 8.99));
         dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", "Bitoque de Frango com arroz e batata                                                   5.99€", 5.99));
