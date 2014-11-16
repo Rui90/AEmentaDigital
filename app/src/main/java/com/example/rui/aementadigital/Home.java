@@ -114,15 +114,15 @@ public class Home extends FragmentActivity
                         .commit();
                 break;
             }
-            case 6: {
-                Fragment fragment = new AskPassword();
-//                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                fragmentManager.beginTransaction()
-                        .replace(R.id.container, fragment)
-                        .commit();
-                break;
-            }
+//            case 6: {
+//                Fragment fragment = new AskPassword();
+////                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
+//                FragmentManager fragmentManager = getSupportFragmentManager();
+//                fragmentManager.beginTransaction()
+//                        .replace(R.id.container, fragment)
+//                        .commit();
+//                break;
+//            }
 
         }
     }
@@ -144,9 +144,9 @@ public class Home extends FragmentActivity
             case 5:
                 mTitle = getString(R.string.beverages);
                 break;
-            case 6:
-                mTitle = getString(R.string.code);
-                break;
+//            case 6:
+//                mTitle = getString(R.string.code);
+//                break;
         }
     }
 
@@ -259,12 +259,21 @@ public class Home extends FragmentActivity
 
         FragmentManager fragmentManager = getSupportFragmentManager();
         List l = fragmentManager.getFragments();
+
         if (l == null) {
-            finish();
+            Fragment fragment = new AskPassword();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
         } else {
             String[] parts = l.get(l.size() - 1).toString().split("\\{");
-            if (parts[0].equals("Home")) {
-                finish();
+            if (parts[0].equals("HomeView")) {
+                Fragment fragment = new AskPassword();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
+            } else if (parts[0].equals("AskPassword")) {
+                //do nothing
             } else {
                 Fragment fragment = new HomeView();
                 fragmentManager.beginTransaction()

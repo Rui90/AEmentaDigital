@@ -43,7 +43,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -67,7 +67,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -92,7 +92,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -117,7 +117,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -142,7 +142,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -167,7 +167,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -191,7 +191,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -215,7 +215,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -239,7 +239,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();
@@ -263,7 +263,7 @@ public class AskPassword extends Fragment {
                 passwordCount.setText(passwordCount.getText().toString() + "*");
                 if (password.getText().toString().length() == 4) {
                     if (Integer.parseInt(password.getText().toString()) == PASSWORD) {
-
+                        System.exit(1);
                     } else {
                         Toast.makeText(getActivity().getApplicationContext(), "Password errada, por favor insira novamente!",
                                 Toast.LENGTH_LONG).show();

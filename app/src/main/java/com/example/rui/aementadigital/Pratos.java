@@ -155,8 +155,8 @@ public class Pratos extends Fragment {
     private void prepareListData() {
         dishes = new ArrayList<DishesHelper>();
         dishes.add(new DishesHelper(1, "Alheira à Mirandela", "Alheira à Mirandela                                                                                      6.99€", 6.99));
-        dishes.add(new DishesHelper(1, "Bitoque de Vaca com arroz e batata", "Bitoque de Vaca com arroz e batata                                                       8.99€", 8.99));
-        dishes.add(new DishesHelper(1, "Bitoque de Frango com arroz e batata", "Bitoque de Frango com arroz e batata                                                   5.99€", 5.99));
+        dishes.add(new DishesHelper(1, "Bitoque de Vaca", "Bitoque de Vaca                                                                                            8.99€", 8.99));
+        dishes.add(new DishesHelper(1, "Bitoque de Frango", "Bitoque de Frango                                                                                        5.99€", 5.99));
         dishes.add(new DishesHelper(1, "Posta mirandesa", "Posta mirandesa                                                                                          8.99€", 8.99));
         dishes.add(new DishesHelper(1, "Picanha grelhada", "Picanha grelhada                                                                                         7.99€", 7.99));
         dishes.add(new DishesHelper(2, "Bacalhau à Brás", "Bacalhau à Brás                                                                                           6.99€", 6.99));
