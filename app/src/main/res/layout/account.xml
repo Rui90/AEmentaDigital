@@ -2,101 +2,110 @@
 
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/warning"
+        android:layout_width="fill_parent"
+        android:layout_height="250dp"
+        android:gravity="center"></LinearLayout>
+
     <ScrollView
         android:id="@+id/scrollView1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#3d455b"
         android:layout_alignParentLeft="true"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="#3d455b">
 
         <HorizontalScrollView
             android:id="@+id/hscrll1"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/RelativeLayout1"
                 android:layout_width="fill_parent"
-                android:layout_gravity="center"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/pedidosenviados"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Lista de Pedidos Enviados"
-                    android:visibility="gone"
-                    android:textColor="@color/default_color"/>
+                    android:textColor="@color/default_color"
+                    android:textSize="22dp"
+                    android:visibility="gone" />
+
                 <TableLayout
-                    android:layout_below="@+id/pedidosenviados"
                     android:id="@+id/table_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true" >
-                </TableLayout>
+                    android:layout_below="@+id/pedidosenviados"
+                    android:layout_centerHorizontal="true"></TableLayout>
+
                 <Button
+                    android:id="@+id/sendAccount"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/table_main"
-                    android:textColor="@color/default_color"
-                    android:id="@+id/sendAccount"
-                    android:visibility="gone"
                     android:text="Pedir conta"
-                    />
+                    android:textColor="@color/default_color"
+                    android:visibility="gone" />
 
             </RelativeLayout>
         </HorizontalScrollView>
     </ScrollView>
 
     <ScrollView
-        android:layout_below="@+id/scrollView1"
         android:id="@+id/scrollView2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="#3d455b"
         android:layout_alignParentLeft="true"
-        android:layout_weight="1">
+        android:layout_below="@+id/scrollView1"
+        android:layout_weight="1"
+        android:background="#3d455b">
 
         <HorizontalScrollView
             android:id="@+id/hscrll2"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content" >
+            android:layout_height="wrap_content">
 
             <RelativeLayout
                 android:id="@+id/RelativeLayout2"
                 android:layout_width="fill_parent"
-                android:layout_gravity="center"
                 android:layout_height="fill_parent"
-                android:orientation="vertical" >
+                android:layout_gravity="center"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/pedidosporEnviar"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="Lista de Pedidos Enviados"
+                    android:textColor="@color/default_color"
                     android:textSize="24dp"
                     android:textStyle="bold"
-                    android:visibility="gone"
-                    android:textColor="@color/default_color"/>
+                    android:visibility="gone" />
+
                 <TableLayout
-                    android:layout_below="@+id/pedidosporEnviar"
                     android:id="@+id/second_table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_centerHorizontal="true" >
-                </TableLayout>
+                    android:layout_below="@+id/pedidosporEnviar"
+                    android:layout_centerHorizontal="true"></TableLayout>
+
                 <Button
+                    android:id="@+id/sendToKitchen"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_below="@+id/second_table"
-                    android:textColor="@color/default_color"
-                    android:id="@+id/sendToKitchen"
-                    android:visibility="gone"
                     android:text="Enviar para a cozinha"
-                    />
+                    android:textColor="@color/default_color"
+                    android:visibility="gone" />
 
             </RelativeLayout>
         </HorizontalScrollView>

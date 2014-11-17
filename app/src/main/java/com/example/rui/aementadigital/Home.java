@@ -127,6 +127,7 @@ public class Home extends FragmentActivity
         }
     }
 
+
     public void onSectionAttached(int number) {
         switch (number) {
             case 1:
@@ -166,6 +167,20 @@ public class Home extends FragmentActivity
             // decide what to show in the action bar.
             getMenuInflater().inflate(R.menu.home, menu);
             restoreActionBar();
+            MenuItem item = menu.findItem(R.id.action_settings);
+            item.setVisible(false);
+
+//            item = menu.findItem(R.id.action_example);
+//            List<Pedido> completedRequests = ((ContaHelper) this.getApplication()).pedidosConcretizados;
+//            if (completedRequests.size() != 0) {
+//                double check = 0.00;
+//                for (Pedido p : completedRequests) {
+//                    check += p.getPrice();
+//                }
+//
+//                item.setTitle("Conta: " + Math.round(check * 100.0) / 100.0);
+//            }
+
             return true;
         }
         return super.onCreateOptionsMenu(menu);
@@ -178,8 +193,32 @@ public class Home extends FragmentActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+//            item.setVisible(false);
             return true;
         }
+
+        if (item.getItemId() == R.id.action_example) {
+
+//            List<Pedido> completedRequests = ((ContaHelper) this.getApplication()).pedidosConcretizados;
+//            if (completedRequests.size() != 0) {
+//                double check = 0.00;
+//                for (Pedido p : completedRequests) {
+//                    check += p.getPrice();
+//                }
+//
+//                item.setTitle("Conta: " + Math.round(check * 100.0) / 100.0 + " €");
+//                System.out.println(check);
+//            }
+
+            final FragmentManager fragmentManager = this.getSupportFragmentManager();
+            Fragment fragment = new Conta();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .commit();
+
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 
@@ -200,6 +239,7 @@ public class Home extends FragmentActivity
             Button conta = (Button) view.findViewById((R.id.button5));
 
             getActivity().getActionBar().setTitle("Home");
+
 
             entradas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -160,13 +161,13 @@ public class Pratos extends Fragment {
         dishes.add(new DishesHelper(1, "Posta mirandesa", "Posta mirandesa                                                                                          8.99€", 8.99));
         dishes.add(new DishesHelper(1, "Picanha grelhada", "Picanha grelhada                                                                                         7.99€", 7.99));
         dishes.add(new DishesHelper(2, "Bacalhau à Brás", "Bacalhau à Brás                                                                                           6.99€", 6.99));
-        dishes.add(new DishesHelper(2,"Bacalhau à Zé do Pipo" ,"Bacalhau à Zé do Pipo                                                                                6.99€", 6.99));
-        dishes.add(new DishesHelper(2,"Bacalhau com Broa" ,"Bacalhau com Broa                                                                                     9.99€", 9.99));
-        dishes.add(new DishesHelper(2,"Robalo Grelhado com Batata Cozida" ,"Robalo Grelhado com Batata Cozida                                                   11.99€", 11.99));
-        dishes.add(new DishesHelper(2,"Salmão Grelhado com Puré","Salmão Grelhado com Puré                                                                      8.99€", 8.99));
-        dishes.add(new DishesHelper(4,"Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                           6.99€", 6.99));
-        dishes.add(new DishesHelper(4,"Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
-        dishes.add(new DishesHelper(4,"Ravioli recheado com chouriço","Ravioli recheado com chouriço                                                               7.99€", 7.99));
+        dishes.add(new DishesHelper(2, "Bacalhau à Zé do Pipo", "Bacalhau à Zé do Pipo                                                                                6.99€", 6.99));
+        dishes.add(new DishesHelper(2, "Bacalhau com Broa", "Bacalhau com Broa                                                                                     9.99€", 9.99));
+        dishes.add(new DishesHelper(2, "Robalo Grelhado", "Robalo Grelhado                                                                                        11.99€", 11.99));
+        dishes.add(new DishesHelper(2, "Salmão Grelhado com Puré", "Salmão Grelhado com Puré                                                                      8.99€", 8.99));
+        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                           6.99€", 6.99));
+        dishes.add(new DishesHelper(4, "Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
+        dishes.add(new DishesHelper(4, "Ravioli recheado com chouriço", "Ravioli recheado com chouriço                                                               7.99€", 7.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.NumberPicker;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -180,6 +181,10 @@ public class Conta extends Fragment {
                                     "Obrigado por ter vindo. Esperamos que tenha ficado satisfeito com o serviço. \n Por favor aguarde pagamento",
                                     Toast.LENGTH_LONG).show();
                             dialog.hide();
+
+                            //eliminar os pedidos feitos
+                            completedRequests.clear();
+
                             getActivity().getActionBar().setTitle("Home");
                             FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
                             Fragment fragment = new Home.HomeView();
@@ -187,13 +192,23 @@ public class Conta extends Fragment {
                                     .replace(R.id.container, fragment)
                                     .commit();
 
-                            //eliminar os pedidos feitos
-                            completedRequests.clear();
+
                         }
                     });
                 }
             });
         }
+
+        List<Pedido> completedRequests = ((ContaHelper) getActivity().getApplication()).pedidosConcretizados;
+        List<Pedido> waitingOrders = ((ContaHelper) getActivity().getApplication()).pedidosPorEnviar;
+        if (completedRequests.size() == 0 && waitingOrders.size() == 0) {
+            TextView text = new TextView(getActivity());
+            LinearLayout linearLayout = (LinearLayout) view.findViewById(R.id.warning);
+            text.setText("Não tem pedidos feitos.");
+            text.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 24);
+            linearLayout.addView(text);
+        }
+
         return view;
     }
 
