@@ -60,6 +60,7 @@
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:drawableTop="@drawable/steak-256"
                 android:text="Pratos" />
 
         </LinearLayout>

@@ -57,6 +57,7 @@ public class Home extends FragmentActivity
                 .commit();
     }
 
+
     @Override
     public void onNavigationDrawerItemSelected(int position) {
         switch (position) {
@@ -231,6 +232,15 @@ public class Home extends FragmentActivity
             final FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fragment_home, container, false);
+
+            view.setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY); // hide status bar
+                           // | View.SYSTEM_UI_FLAG_IMMERSIVE);
             //mNavigationDrawerFragment.getListView().setItemChecked(0,true);
             Button entradas = (Button) view.findViewById((R.id.button1));
             Button pratos = (Button) view.findViewById((R.id.cancelB));
