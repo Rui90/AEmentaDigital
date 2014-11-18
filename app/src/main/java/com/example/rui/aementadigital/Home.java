@@ -44,8 +44,7 @@ public class Home extends FragmentActivity
 
         mNavigationDrawerFragment = (NavigationDrawerFragment)
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
-        mTitle = getTitle();
-
+        mTitle = "Menu";
         // Set up the drawer.
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
@@ -76,6 +75,7 @@ public class Home extends FragmentActivity
                 break;
             }
             case 1: {
+                mTitle = "Entradas e Sopas";
                 Fragment fragment = new Entradas();
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -85,6 +85,7 @@ public class Home extends FragmentActivity
                 break;
             }
             case 2: {
+                mTitle = "Pratos";
                 Fragment fragment = new Pratos();
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -94,6 +95,7 @@ public class Home extends FragmentActivity
                 break;
             }
             case 3: {
+                mTitle = "Sobremesas";
                 Fragment fragment = new Sobremesas();
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -103,6 +105,7 @@ public class Home extends FragmentActivity
                 break;
             }
             case 4: {
+                mTitle = "Bebidas";
                 Fragment fragment = new Bebidas();
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -112,6 +115,7 @@ public class Home extends FragmentActivity
                 break;
             }
             case 5: {
+                mTitle = "Conta";
                 Fragment fragment = new Conta();
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -254,12 +258,12 @@ public class Home extends FragmentActivity
             Button conta = (Button) view.findViewById((R.id.button5));
             Button ajuda = (Button) view.findViewById(R.id.ajuda);
 
-            getActivity().getActionBar().setTitle("Menú");
+            getActivity().getActionBar().setTitle("Menu");
 
 
             entradas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Entradas e Cafés");
+                    getActivity().getActionBar().setTitle("Entradas e Sopas");
                     Fragment fragment = new Entradas();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
@@ -279,7 +283,7 @@ public class Home extends FragmentActivity
 
             sobremesas.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    getActivity().getActionBar().setTitle("Sobremesas e Cafés");
+                    getActivity().getActionBar().setTitle("Sobremesas e Café");
                     Fragment fragment = new Sobremesas();
                     fragmentManager.beginTransaction()
                             .replace(R.id.container, fragment)
