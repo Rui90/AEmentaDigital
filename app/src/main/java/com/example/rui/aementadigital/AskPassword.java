@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.w3c.dom.Text;
+
 /**
  * Created by guilh_000 on 07/11/2014.
  */
@@ -35,6 +37,18 @@ public class AskPassword extends Fragment {
         final Button buttonDelete = (Button) view.findViewById(R.id.deletetext);
         final TextView password = (TextView) view.findViewById(R.id.password);
         final TextView passwordCount = (TextView) view.findViewById(R.id.viewPassword);
+        final Button sair = (Button) view.findViewById(R.id.sair);
+
+        sair.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                getActivity().getActionBar().setTitle("Home");
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                Fragment fragment = new Home.HomeView();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.container, fragment)
+                        .commit();
+            }
+        });
 
         button1.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
