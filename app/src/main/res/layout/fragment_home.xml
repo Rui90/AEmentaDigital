@@ -57,7 +57,7 @@
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:drawableTop="@drawable/tomate"
+                android:drawableTop="@drawable/room"
                 android:text="Pratos" />
 
         </LinearLayout>

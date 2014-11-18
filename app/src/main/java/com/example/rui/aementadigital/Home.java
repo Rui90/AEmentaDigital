@@ -7,6 +7,7 @@ import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -50,7 +51,7 @@ public class Home extends FragmentActivity
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
 
-        getActionBar().setIcon(R.drawable.room);
+        getActionBar().setIcon(R.drawable.tomate);
         getActionBar().setBackgroundDrawable(new ColorDrawable(R.color.networks));
 
         Fragment fragment = new HomeView();
@@ -201,7 +202,7 @@ public class Home extends FragmentActivity
 //            item.setVisible(false);
             return true;
         }
-
+        item.setIcon(R.drawable.list);
         if (item.getItemId() == R.id.action_example) {
 
 //            List<Pedido> completedRequests = ((ContaHelper) this.getApplication()).pedidosConcretizados;
