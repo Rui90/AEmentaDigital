@@ -156,7 +156,7 @@ public class Entradas extends Fragment {
         starters.add(new StartersHelper(2, "Sopa de Agrião", "Sopa de Agrião                                                                                              3.99€", 3.99));
         starters.add(new StartersHelper(2, "Caldo Verde", "Caldo Verde                                                                                                    3.99€", 3.99));
         starters.add(new StartersHelper(2, "Canja", "Canja                                                                                                                3.99€", 3.99));
-        starters.add(new StartersHelper(2, "Sopa da pedra", "Sopa da pedra                                                                                               3.99€", 3.99));
+        starters.add(new StartersHelper(2, "Sopa da pedra", "Sopa da pedra                                                                                                3.99€", 3.99));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

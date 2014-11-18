@@ -165,8 +165,8 @@ public class Sobremesas extends Fragment {
         desserts.add(new DessertsHelper(4, "Banana", "Banana                                                                                                            1.00€", 1.00));
         desserts.add(new DessertsHelper(4, "Melão", "Melão                                                                                                               1.00€", 1.00));
         desserts.add(new DessertsHelper(4, "Meloa", "Meloa                                                                                                               1.00€", 1.00));
-        desserts.add(new DessertsHelper(4, "Melancia", "Melancia                                                                                                         1.00€", 1.00));
-        desserts.add(new DessertsHelper(4, "Laranja", "Laranja                                                                                                            1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Melancia", "Melancia                                                                                                          1.00€", 1.00));
+        desserts.add(new DessertsHelper(4, "Laranja", "Laranja                                                                                                             1.00€", 1.00));
 
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();

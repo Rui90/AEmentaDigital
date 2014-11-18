@@ -165,7 +165,7 @@ public class Pratos extends Fragment {
         dishes.add(new DishesHelper(2, "Bacalhau com Broa", "Bacalhau com Broa                                                                                     9.99€", 9.99));
         dishes.add(new DishesHelper(2, "Robalo Grelhado", "Robalo Grelhado                                                                                        11.99€", 11.99));
         dishes.add(new DishesHelper(2, "Salmão Grelhado com Puré", "Salmão Grelhado com Puré                                                                      8.99€", 8.99));
-        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                           6.99€", 6.99));
+        dishes.add(new DishesHelper(4, "Esparguete à Bolonhesa", "Esparguete à Bolonhesa                                                                            6.99€", 6.99));
         dishes.add(new DishesHelper(4, "Lasanha Bolonhesa", "Lasanha Bolonhesa                                                                                    7.99€", 7.99));
         dishes.add(new DishesHelper(4, "Ravioli recheado com chouriço", "Ravioli recheado com chouriço                                                               7.99€", 7.99));
 
