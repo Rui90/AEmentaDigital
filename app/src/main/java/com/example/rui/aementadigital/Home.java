@@ -6,6 +6,7 @@ import android.app.ActionBar;
 import android.app.ActivityManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -48,6 +49,9 @@ public class Home extends FragmentActivity
         mNavigationDrawerFragment.setUp(
                 R.id.navigation_drawer,
                 (DrawerLayout) findViewById(R.id.drawer_layout));
+
+        getActionBar().setIcon(R.drawable.room);
+        getActionBar().setBackgroundDrawable(new ColorDrawable(R.color.networks));
 
         Fragment fragment = new HomeView();
         //int position = mNavigationDrawerFragment.getListView().getSelectedItemPosition();
@@ -233,22 +237,23 @@ public class Home extends FragmentActivity
             // Inflate the layout for this fragment
             View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-            view.setSystemUiVisibility(
+           /* view.setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
                             | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION // hide nav bar
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
                             | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY); // hide status bar
-                           // | View.SYSTEM_UI_FLAG_IMMERSIVE);
+                           // | View.SYSTEM_UI_FLAG_IMMERSIVE);*/
             //mNavigationDrawerFragment.getListView().setItemChecked(0,true);
             Button entradas = (Button) view.findViewById((R.id.button1));
             Button pratos = (Button) view.findViewById((R.id.cancelB));
             Button sobremesas = (Button) view.findViewById((R.id.button3));
             Button bebidas = (Button) view.findViewById((R.id.button4));
             Button conta = (Button) view.findViewById((R.id.button5));
+            Button ajuda = (Button) view.findViewById(R.id.ajuda);
 
-            getActivity().getActionBar().setTitle("Home");
+            getActivity().getActionBar().setTitle("Menú");
 
 
             entradas.setOnClickListener(new View.OnClickListener() {
@@ -301,6 +306,12 @@ public class Home extends FragmentActivity
                 }
             });
 
+            ajuda.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Toast.makeText(getActivity().getApplicationContext(), "Por favor aguarde pela assistência!",
+                            Toast.LENGTH_LONG).show();
+                }
+            });
             return view;
         }
     }

@@ -36,14 +36,13 @@
                 android:layout_marginRight="25dp"
                 android:layout_weight="1"
                 android:background="@color/networks"
-
                 android:gravity="bottom|center_horizontal"
-                android:paddingBottom="50dp"
+                android:paddingBottom="30dp"
                 android:paddingTop="25dp"
-
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:drawableTop="@drawable/soups"
                 android:text="Entradas e Sopas" />
 
             <Button
@@ -52,15 +51,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/networks"
-
                 android:gravity="bottom|center_horizontal"
-                android:paddingBottom="50dp"
+                android:paddingBottom="30dp"
                 android:paddingTop="25dp"
-
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
-                android:drawableTop="@drawable/steak-256"
+                android:drawableTop="@drawable/tomate"
                 android:text="Pratos" />
 
         </LinearLayout>
@@ -80,14 +77,13 @@
                 android:layout_marginRight="25dp"
                 android:layout_weight="1"
                 android:background="@color/networks"
-
                 android:gravity="bottom|center_horizontal"
-                android:paddingBottom="50dp"
+                android:paddingBottom="15dp"
                 android:paddingTop="25dp"
-
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
+                android:drawableTop="@drawable/icecream"
                 android:text="Sobremesas e Café" />
 
             <Button
@@ -96,11 +92,10 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@color/networks"
-
+                android:drawableTop="@drawable/wine"
                 android:gravity="bottom|center_horizontal"
-                android:paddingBottom="50dp"
+                android:paddingBottom="30dp"
                 android:paddingTop="25dp"
-
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -117,19 +112,32 @@
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="396dp"
+                android:layout_width="174dp"
                 android:layout_height="match_parent"
                 android:layout_marginRight="25dp"
                 android:background="@color/networks"
-
                 android:gravity="bottom|center_horizontal"
-                android:paddingBottom="50dp"
+                android:paddingBottom="30dp"
+                android:drawableTop="@drawable/list"
                 android:paddingTop="25dp"
-
                 android:textColor="@color/default_color"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="Pedidos" />
+
+            <Button
+                android:id="@+id/ajuda"
+                android:layout_width="182dp"
+                android:layout_height="136dp"
+                android:background="@color/networks"
+                android:gravity="bottom|center_horizontal"
+                android:paddingBottom="30dp"
+                android:paddingTop="25dp"
+                android:textColor="@color/default_color"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:drawableTop="@drawable/waiter_50"
+                android:text="Ajuda" />
 
         </LinearLayout>
 
