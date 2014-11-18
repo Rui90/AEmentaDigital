@@ -50,7 +50,6 @@ public class Conta extends Fragment {
             send2Account.setVisibility(View.VISIBLE);
 
             for (int i = 0; i < buttonsEdit.length; i++) {
-                System.out.println(i);
                 if (buttonsEdit[i] != null) {
                     final int toEdit = i;
                     buttonsEdit[i].setOnClickListener(new View.OnClickListener() {
@@ -108,7 +107,7 @@ public class Conta extends Fragment {
             }
 
             for (int i = 0; i < buttonsRemove.length; i++) {
-                System.out.println(i);
+
                 if (buttonsRemove[i] != null) {
                     final int toRemove = i;
                     buttonsRemove[i].setOnClickListener(new View.OnClickListener() {
@@ -359,6 +358,7 @@ public class Conta extends Fragment {
         t3v.setTextColor(Color.WHITE);
         t3v.setGravity(Gravity.CENTER);
         tbrow.addView(t3v);
+        total_aux = 0.0;
         stk.addView(tbrow);
     }
 
