@@ -41,6 +41,7 @@ public class Pratos extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.dishes, container, false);
+        getActivity().getActionBar().setIcon(R.drawable.room);
 
         // get the listview
         expListView = (ExpandableListView) view.findViewById(R.id.listmeat);

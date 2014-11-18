@@ -39,6 +39,7 @@ public class Conta extends Fragment {
 
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.account, container, false);
+        getActivity().getActionBar().setIcon(R.drawable.list);
         super.onCreate(savedInstanceState);
         // requestWindowFeature(Window.FEATURE_NO_TITLE);
 

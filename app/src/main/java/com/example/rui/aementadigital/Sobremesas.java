@@ -37,6 +37,7 @@ public class Sobremesas extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.desserts, container, false);
+        getActivity().getActionBar().setIcon(R.drawable.icecream);
 
         // get the listview
         expListView = (ExpandableListView) view.findViewById(R.id.listdesserts);

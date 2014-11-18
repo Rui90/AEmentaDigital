@@ -36,6 +36,7 @@ public class Entradas extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.starters, container, false);
+        getActivity().getActionBar().setIcon(R.drawable.soups);
 
         // get the listview
         expListView = (ExpandableListView) view.findViewById(R.id.liststarters);
