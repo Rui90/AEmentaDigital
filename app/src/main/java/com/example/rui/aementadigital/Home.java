@@ -66,6 +66,7 @@ public class Home extends FragmentActivity
     public void onNavigationDrawerItemSelected(int position) {
         switch (position) {
             case 0: {
+                getActionBar().setIcon(R.drawable.tomate);
 //                Toast.makeText(getApplicationContext(),"position: " + position, Toast.LENGTH_LONG).show();
                 Fragment fragment = new HomeView();
                 FragmentManager fragmentManager = getSupportFragmentManager();
@@ -345,6 +346,7 @@ public class Home extends FragmentActivity
                 fragmentManager.beginTransaction()
                         .replace(R.id.container, fragment)
                         .commit();
+                getActionBar().setIcon(R.drawable.tomate);
             }
         }
     }
