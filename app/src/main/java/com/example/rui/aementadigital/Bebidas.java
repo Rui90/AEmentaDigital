@@ -42,6 +42,15 @@ public class Bebidas extends Fragment {
         // get the listview
         expListView = (ExpandableListView) view.findViewById(R.id.listwine);
 
+        Button ajuda = (Button) view.findViewById(R.id.help);
+
+        ajuda.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Toast.makeText(getActivity().getApplicationContext(), "Por favor aguarde pela assistência!",
+                        Toast.LENGTH_LONG).show();
+            }
+        });
+
         // preparing list data
         prepareListData();
 

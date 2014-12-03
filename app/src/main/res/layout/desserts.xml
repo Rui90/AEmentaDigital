@@ -19,7 +19,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/" />
+        android:id="@+id/help"/>
 
 
 </RelativeLayout>

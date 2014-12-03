@@ -8,6 +8,18 @@
         android:id="@+id/listmeat"
         android:layout_height="match_parent"
         android:layout_width="match_parent"/>
+    <Button
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:background="@layout/round_button"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="Ajuda"
+        android:textColor="@color/default_color"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/help"/>
+
 
 
 </RelativeLayout>
