@@ -68,4 +68,15 @@
         android:layout_toRightOf="@+id/pedidos"
         android:layout_toEndOf="@+id/pedidos" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Quantidade:"
+        android:id="@+id/textView"
+        android:layout_toStartOf="@+id/numberPicker"
+        android:layout_below="@+id/pedido"
+        android:layout_alignLeft="@+id/pedido"
+        android:layout_alignStart="@+id/pedido" />
+
 </RelativeLayout>
