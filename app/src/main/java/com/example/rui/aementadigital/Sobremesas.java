@@ -1,6 +1,8 @@
 package com.example.rui.aementadigital;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -102,10 +104,24 @@ public class Sobremesas extends Fragment {
                 // final int quantidade = np.getValue();
                 cuisine.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
-                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
-                        Toast.makeText(getActivity().getApplicationContext(),
-                                "O seu pedido foi enviado para a cozinha!",
-                                Toast.LENGTH_LONG).show();
+                        new AlertDialog.Builder(getActivity())
+                                .setTitle("Envio para a cozinha")
+                                .setMessage("Tem a certeza que quer enviar o seu pedido para a cozinha?")
+                                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        ((ContaHelper) getActivity().getApplication()).addPedido(new Pedido(dish.get(0), Double.parseDouble(dish.get(1)), ((ContaHelper) getActivity().getApplication()).quantidade), 1);
+                                        Toast.makeText(getActivity().getApplicationContext(),
+                                                "O seu pedido foi enviado para a cozinha!",
+                                                Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        // do nothing
+                                    }
+                                })
+                                .setIcon(android.R.drawable.ic_dialog_alert)
+                                .show();
                         dialog.hide();
                     }
                 });
